@@ -1,0 +1,5 @@
+# common
+YEARMONTHDAY %{YEAR}-%{MONTHNUM}-%{MONTHDAY}
+
+# patterns
+CBPOLICYD_ACCOUNTING module=Accounting, mode=%{GREEDYDATA:mode}\, host=%{IP:postfix_client_ip}, helo=.?%{IPORHOST:postfix_client}.?, from=%{GREEDYDATA:from}\, to=%{GREEDYDATA:to}\, reason=(accounting_update|accounting_create), policy=%{INT:policy_number}, accounting=%{INT:accounting_number}, track=Sender:%{GREEDYDATA:tracked_sender}\, period=%{YEARMONTHDAY:period}, count=%{INT:policy_count}/%{INT:policy_max} \(%{NUMBER:quota_percent}\%\), size=/-

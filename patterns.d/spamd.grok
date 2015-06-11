@@ -1,0 +1,9 @@
+# common
+
+# patterns
+SPAMD_CHILD spamd: server successfully spawned child process, pid %{NUMBER:process_pid}
+SPAMD_CONNECTION spamd: connection from %{IPORHOST:hostname} \[%{IP:raddr}\] at port %{INT:rport}
+SPAMD_PROCESSING spamd: processing message (\(%{GREEDYDATA:sender}\)|<%{GREEDYDATA:msgname}\@%{GREEDYDATA:sender}\>) for %{GREEDYDATA:recipient}:%{INT:uid}
+SPAMD_SCANINFO spamd: result: . %{NUMBER:points} - %{GREEDYDATA:filter_rules}\ scantime=%{NUMBER:scantime},size=%{INT:msgsize},user=%{GREEDYDATA:recipient}\,uid=%{INT:uid},required_score=%{NUMBER:threshold},rhost=%{IPORHOST:remote_host},raddr=%{IP:remote_addr},rport=%{INT:remote_port},mid=(\(unknown\)|<%{GREEDYDATA:msgname}\@%{GREEDYDATA:sender}\>),autolearn=%{GREEDYDATA:autolearn}
+SPAMD_RESULT spamd: %{GREEDYDATA:result} (spam|message) \(%{NUMBER:points}/%{NUMBER:threshold}\) for %{GREEDYDATA:recipient}\:%{INT:uid} in %{NUMBER:scantime} seconds, %{NUMBER:msgsize} bytes.
+SPAMD_PREFORK prefork: %{GREEDYDATA:information}
