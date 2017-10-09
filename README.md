@@ -2,6 +2,7 @@ Logstash patterns and conf for parsing and storing maillogs.
 
 With Logstash, you'll also need input and output specified and saved under conf.d. Below is an example input-output-config.
 
+```
 input {  
   # For standard maillog sent from rsyslogd or syslog-ng.  
   syslog {  
@@ -31,4 +32,4 @@ output {
   #   path => "/var/log/logstash/logstash-debug.log"  
   # }  
 }  
-  
+``` 
